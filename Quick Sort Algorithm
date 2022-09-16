@@ -1,0 +1,22 @@
+def part(array,l,r):
+    pivot=array[r]
+    point=l
+    for i in range(l,r):
+        if array[i]<=pivot:
+            array[i],array[point]=array[point],array[i]
+            point+=1
+    array[point],array[r]=array[r],array[point]
+    return point
+    
+def quicksort(array,l,r):
+    if len(array) == 1:
+        return array
+    if l<r:
+        var=part(array,l,r)
+        quicksort(array,l,var-1)
+        quicksort(array,var+1,r)
+    
+    return array
+
+test = [21, 4, 1, 3, 9, 20, 25, 6, 21, 14]
+print quicksort(test,0,len(test)-1)
