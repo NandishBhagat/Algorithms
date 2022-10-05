@@ -1,0 +1,16 @@
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+
+        var=[]
+
+        def myfun(root):
+            if not root:
+                return
+
+            myfun(root.left)
+            myfun(root.right)
+            var.append(root.val)
+            
+
+        myfun(root)
+        return var
