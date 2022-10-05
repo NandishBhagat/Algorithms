@@ -1,0 +1,16 @@
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        
+        var=[]
+
+        def myfun(root):
+            if not root:
+                return
+
+            var.append(root.val)
+            myfun(root.left)
+            myfun(root.right)
+
+        myfun(root)
+
+        return var
