@@ -1,0 +1,14 @@
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        var=[]
+        def myfun(root):
+            if not root:
+                return
+
+            var.append(root.val)
+            for i in root.children:
+                myfun(i)
+
+        
+        myfun(root)
+        return var
